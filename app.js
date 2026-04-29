@@ -53,8 +53,8 @@ function toNum(v) {
   return Number.isFinite(n) ? n : null;
 }
 
-function round100(n) {
-  return Math.round(n / 100) * 100;
+function exactPrice(n) {
+  return n;
 }
 
 function pct(max, min) {
@@ -109,8 +109,8 @@ function minMax(rows, product, useRegionName = false) {
     if (!minRow || value < minRow.value) minRow = { row, value };
   }
   if (!maxRow || !minRow || maxRow.value <= minRow.value) return null;
-  const maxPrice = round100(maxRow.value);
-  const minPrice = round100(minRow.value);
+  const maxPrice = exactPrice(maxRow.value);
+  const minPrice = exactPrice(minRow.value);
   return [product, useRegionName ? maxRow.row.region : maxRow.row.district, maxPrice, useRegionName ? minRow.row.region : minRow.row.district, minPrice, pct(maxPrice, minPrice) + '%'];
 }
 
@@ -196,7 +196,7 @@ function styleSheet(ws, totalRows) {
         if (c === 3) x.s.font = { name: 'Arial', bold: true, sz: 14, color: { rgb: 'FF0000' } };
         if (c === 5) x.s.font = { name: 'Arial', bold: true, sz: 14, color: { rgb: '00A651' } };
         if (c === 6) x.s.font = { name: 'Arial', italic: true, sz: 14 };
-        if (c === 3 || c === 5) x.z = '# ##0';
+        if (c === 3 || c === 5) x.z = '# ##0.##';
       }
     }
   }
