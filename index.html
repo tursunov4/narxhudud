@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Narxlar tahlili</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <section class="card">
+      <h1>Narxlar Excel tahlili</h1>
+      <p>“Ҳудуд” ва “Туман” ustunlari bor Excel faylni yuklang. Ilova avtomatik 3 ta jadvalni hisoblab, tayyor Excel fayl beradi.</p>
+      <label class="upload">
+        <input id="fileInput" type="file" accept=".xlsx,.xls" />
+        <span>Excel faylni tanlash</span>
+      </label>
+      <div id="status" class="status">Fayl kutilmoqda...</div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
